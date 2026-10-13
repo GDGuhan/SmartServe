@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 6%;
+    --foreground: 45 30% 95%;
+    --card: 240 8% 9%;
+    --card-foreground: 45 30% 95%;
+    --popover: 240 8% 9%;
+    --popover-foreground: 45 30% 95%;
+    --primary: 43 96% 56%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 240 5% 18%;
+    --secondary-foreground: 45 20% 85%;
+    --muted: 240 5% 16%;
+    --muted-foreground: 240 5% 55%;
+    --accent: 35 92% 50%;
+    --accent-foreground: 240 10% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5% 18%;
+    --input: 240 5% 18%;
+    --ring: 43 96% 56%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-surface-900 text-foreground font-body;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-heading;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: theme('colors.surface.800');
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: theme('colors.surface.500');
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: theme('colors.brand.600');
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-surface-800 border border-surface-600 rounded-xl backdrop-blur-sm;
+  }
+
+  .glass-card-glow {
+    @apply glass-card border-brand-700/40 shadow-lg shadow-brand-900/20;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-400 to-brand-600 bg-clip-text text-transparent;
+  }
+
+  .btn-primary {
+    @apply bg-brand-500 hover:bg-brand-600 text-surface-900 font-semibold px-6 py-2.5 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-brand-600/30 active:scale-95;
+  }
+
+  .btn-secondary {
+    @apply bg-surface-600 hover:bg-surface-500 text-foreground font-medium px-6 py-2.5 rounded-lg transition-all duration-200 border border-surface-500;
+  }
+
+  .btn-ghost {
+    @apply hover:bg-surface-700 text-muted-foreground hover:text-foreground px-4 py-2 rounded-lg transition-all duration-200;
+  }
+
+  .status-badge {
+    @apply inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+
+  .nav-link {
+    @apply flex items-center gap-3 px-4 py-2.5 rounded-lg text-muted-foreground hover:text-foreground hover:bg-surface-700 transition-all duration-200;
+  }
+
+  .nav-link.active {
+    @apply bg-brand-500/10 text-brand-400 border border-brand-500/20;
+  }
+
+  .section-header {
+    @apply flex items-center gap-3 mb-6;
+  }
+
+  .amber-dot {
+    @apply w-2 h-2 rounded-full bg-brand-500;
+  }
+}
+
+.page-enter {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
